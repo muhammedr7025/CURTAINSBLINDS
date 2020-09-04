@@ -7,7 +7,6 @@
 <!--<![endif]-->
 <html lang="en">
 
-<!-- Mirrored from tivatheme.com/html/furnitica/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 04 Aug 2020 15:22:46 GMT -->
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -38,6 +37,9 @@
     <!-- Template CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/reponsive.css">
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body id="contact" class="blog">
@@ -210,7 +212,7 @@
                                 <div class="d-flex justify-content-center">
                                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                         <div class="contact-form">
-                                            <form action="http://tivatheme.com/html/furnitica/index.html" method="post"
+                                            <form id="submit-form"
                                                   enctype="multipart/form-data">
                                                 <div class="form-fields">
                                                     <div class="form-group row">
@@ -405,6 +407,25 @@
         <div class="dot"></div>
     </div>
 </div>
+	<script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbxUuBDEPOdPxHE3PMNzb3rAN6_h1w5hy3JkOtPc/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 <!-- Vendor JS -->
 <script src="libs/jquery/jquery.min.js"></script>
 <script src="libs/popper/popper.min.js"></script>
